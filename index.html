@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12pt;
+    }
+
+    th, td {
+      border: 1pt solid #D8D9DA;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #D6EFED;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  
+<table id="employeeTable">
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Designation</th>
+      <th>Date of Joining</th>
+      <th>Address</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+    <xsl:for-each select="employees/employee[Designation='Technical Writer']">
+      <tr>
+        <td><xsl:value-of select="EmployeeName"/>John Doe</td>
+        <td><xsl:value-of select="Designation"/>Technical Writer</td>
+        <td><xsl:value-of select="DateOfJoining"/>2023-01-01</td>
+        <td><xsl:value-of select="Address"/>123 Main St</td>
+        <td><xsl:value-of select="Salary"/>600000</td>
+      </tr>
+      <tr>
+        <td><xsl:value-of select="EmployeeName"/>Some one</td>
+        <td><xsl:value-of select="Designation"/>Technical Writer</td>
+        <td><xsl:value-of select="DateOfJoining"/>2023-01-01</td>
+        <td><xsl:value-of select="Address"/>123 Main St</td>
+        <td><xsl:value-of select="Salary"/>530000</td>
+      </tr>
+    </xsl:for-each>
+
+    <xsl:for-each select="employees/employee[Salary > 500000 and Salary < 700000]">
+      <tr>
+        <td><xsl:value-of select="EmployeeName"/></td>
+        <td><xsl:value-of select="Designation"/></td>
+        <td><xsl:value-of select="DateOfJoining"/></td>
+        <td><xsl:value-of select="Address"/></td>
+        <td><xsl:value-of select="Salary"/></td>
+      </tr>
+    </xsl:for-each>
+  </tbody>
+</table>
+
+</body>
+</html>
